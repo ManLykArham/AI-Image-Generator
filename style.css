@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background: #000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.container {
+    /* Customizing the container */
+    position: relative;
+    width: 40rem;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px 30px;
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(7.4px);
+    -webkit-backdrop-filter: blur(7.4px);
+    border: 1px solid color-mix(in hsl shorter hue, rgba(255, 0, 0, 0.3) 100%, rgba(0, 0, 255, 0.3) 100%);
+}
+
+.container::before {
+    /* ::before, allows to add that pink color before the container -> on the left side (change filter: blur(1px)) to understand*/
+    content: "";
+    position: absolute;
+    background-color: #c800ffee;
+    width: 180px;
+    height: 300px;
+    filter: blur(200px);
+    left: -20%;
+    top: 10%;
+    z-index: -1000;
+    /*z-index decides which element goes on top, high z-index value (1000) element on TOP, low z-index value (-1000) element will be at the bottom */
+}
+
+.container::after {
+    /* ::after, allows to add that blue color after the container -> on the right side (change filter: blur(1px)) to understand*/
+    content: "";
+    position: absolute;
+    background-color: #1200d3;
+    width: 180px;
+    height: 300px;
+    filter: blur(200px);
+    right: -20%;
+    bottom: -10%;
+    z-index: -1000;
+}
+
+h1 {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+p {
+    font-size: 14px;
+    color: #ccc;
+    line-height: 1.4rem;
+    text-align: justify;
+}
+
+.gen-form {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+
+input {
+    width: 80%;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    padding: 0 15px;
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid #999;
+    transition: all 0.275s ease;
+}
+
+input:hover,
+input:focus {
+    border-color: #9f76f6;
+}
+
+button {
+    width: 20%;
+    height: 36px;
+    color: #fff;
+    border: 1px solid #ccc;
+    background: #20232c;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    transition: all 0.275s ease;
+}
+
+button:hover {
+    background: #300450;
+    border-color: color-mix(in hsl shorter hue, red 100%, blue 100%)
+}
+
+#loading {
+    display: none;
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+button:disabled,
+button[disabled] {
+    border: 1px solid #999;
+    background-color: #ccc;
+    color: #666;
+    cursor: auto;
+}
+
+.result {
+    margin-top: 10px;
+    width: 100%;
+    padding: 10px 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#image-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 10px;
+    max-width: 80%;
+}
+
+#image-grid img {
+    max-width: 100%;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.30s ease;
+}
+
+#image-grid img:hover {
+    border-color: color-mix(in hsl shorter hue, rgb(255, 170, 0) 100%, rgb(191, 0, 255) 100%)
+}

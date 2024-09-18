@@ -57,8 +57,12 @@ async function generateImages(input) {
         });
 
     } catch (error) {
-        console.error('Error:', error);
-        alert("Failed to generate images. Please try again later.");
+        console.error('Error:', error.message);
+        if (error.message === 'Request timed out') {
+            alert("The image generation process took too long. Please try again later.");
+        } else {
+            alert("Failed to generate images. Please try again later.");
+        }
     } finally {
         loading.style.display = "none"; // Hide loading message
         enableGenerateButton(); // Re-enable generate button

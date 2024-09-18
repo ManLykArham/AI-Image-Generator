@@ -4,10 +4,10 @@ import dotenv from 'dotenv';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-// Initialising ev 
+// Initialize environment variables
 dotenv.config();
 
-// Creating Express app
+// Create Express app
 const app = express();
 const port = process.env.PORT || 3000;
 
@@ -21,41 +21,49 @@ const __dirname = path.dirname(__filename);
 // Serve static files from the 'public' directory
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Default route to serve the homepage
+// Serve homepage
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'homePage.html'));
 });
 
+// Helper function to implement fetch with timeout
+const fetchWithTimeout = (url, options, timeout = 10000) => {
+    return Promise.race([
+        fetch(url, options),
+        new Promise((_, reject) => setTimeout(() => reject(new Error('Request timed out')), timeout))
+    ]);
+};
+
 // Route to handle image generation request
 app.post('/generateImages', async (req, res) => {
-    const prompt = req.body.prompt; // Getting the user's prompt from the request body
-    const apiKey = process.env.API_KEY_OPENAI; // getting the API key from the .env file
+    const prompt = req.body.prompt;
+    const apiKey = process.env.API_KEY_OPENAI;
 
-    try{
-        // Making a post request to openai to generate images
-        const response = await fetch('https://api.openai.com/v1/images/generations', {
-            method: 'POST', 
+    try {
+        // Use fetchWithTimeout to limit the request to 10 seconds
+        const response = await fetchWithTimeout('https://api.openai.com/v1/images/generations', {
+            method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${apiKey}`
             },
-            body: JSON.stringify ({
+            body: JSON.stringify({
                 prompt: prompt,
-                n: 4, // Numbers of images to generate
+                n: 4, // Number of images to generate
                 size: '512x512' // Image size
             })
-        });
+        }, 10000); // 10-second timeout
 
-        // Checking if the response is ok
-        if (!response.ok){
-            throw new Error('Failed to generate images')}
-console.log("image generated");
-        const data = await response.json(); // Parsing the response data
-        res.status(200).json(data); // Send the images back to the front end
+        if (!response.ok) {
+            throw new Error('Failed to generate images');
+        }
+
+        const data = await response.json();
+        res.status(200).json(data);
 
     } catch (error) {
-        console.error('Error: ', error);
-        res.status(500).json({error: 'Failed to generate images'});
+        console.error('Error: ', error.message);
+        res.status(500).json({ error: error.message });
     }
 });
 
@@ -76,7 +84,7 @@ app.get('/proxy-image', async (req, res) => {
     }
 });
 
-
+// Start the server
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });

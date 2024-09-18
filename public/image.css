@@ -1,0 +1,169 @@
+/* Importing Google Font Roboto */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+/* Reset for all elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Body styling with centered layout and black background */
+body {
+    background: #000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+/* Container styling with glass effect, padding, and shadows */
+.container {
+    position: relative;
+    width: 40rem;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px 30px;
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(7.4px);
+    -webkit-backdrop-filter: blur(7.4px);
+    border: 1px solid color-mix(in hsl shorter hue, rgba(255, 0, 0, 0.3) 100%, rgba(0, 0, 255, 0.3) 100%);
+}
+
+/* Styling for pink and blue color backgrounds with ::before and ::after pseudo-elements */
+.container::before {
+    content: "";
+    position: absolute;
+    background-color: #c800ffee;
+    width: 180px;
+    height: 300px;
+    filter: blur(200px);
+    left: -20%;
+    top: 10%;
+    z-index: -1000;
+}
+
+.container::after {
+    content: "";
+    position: absolute;
+    background-color: #1200d3;
+    width: 180px;
+    height: 300px;
+    filter: blur(200px);
+    right: -20%;
+    bottom: -10%;
+    z-index: -1000;
+}
+
+/* Heading styling */
+h1 {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* Paragraph styling */
+p {
+    font-size: 14px;
+    color: #ccc;
+    line-height: 1.4rem;
+    text-align: justify;
+}
+
+/* Form styling for prompt input and button */
+.gen-form {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+
+/* Input field styling */
+input {
+    width: 80%;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    padding: 0 15px;
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid #999;
+    transition: all 0.275s ease;
+}
+
+/* Input hover and focus effects */
+input:hover,
+input:focus {
+    border-color: #9f76f6;
+}
+
+/* Button styling for generation */
+button {
+    width: 20%;
+    height: 36px;
+    color: #fff;
+    border: 1px solid #ccc;
+    background: #20232c;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    transition: all 0.275s ease;
+}
+
+/* Button hover effect */
+button:hover {
+    background: #300450;
+    border-color: color-mix(in hsl shorter hue, red 100%, blue 100%);
+}
+
+/* Loading text styling */
+#loading {
+    display: none;
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+/* Disabled button styling */
+button:disabled,
+button[disabled] {
+    border: 1px solid #999;
+    background-color: #ccc;
+    color: #666;
+    cursor: auto;
+}
+
+/* Result section styling */
+.result {
+    margin-top: 10px;
+    width: 100%;
+    padding: 10px 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Image grid styling */
+#image-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 10px;
+    max-width: 80%;
+}
+
+/* Image styling in grid */
+#image-grid img {
+    max-width: 100%;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.30s ease;
+}
+
+/* Hover effect for images in the grid */
+#image-grid img:hover {
+    border-color: color-mix(in hsl shorter hue, rgb(255, 170, 0) 100%, rgb(191, 0, 255) 100%);
+}

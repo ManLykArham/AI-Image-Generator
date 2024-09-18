@@ -1,0 +1,84 @@
+/* Styling for the body to center content */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #e0f7fa;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+/* Content container with padding, shadow, and center alignment */
+.content {
+    width: 80%;
+    max-width: 960px;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    background-color: #ffffff;
+    border-radius: 8px;
+    margin: 20px;
+}
+
+/* Video player styling */
+.video-player {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+/* Button styling for navigation */
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 15px;
+}
+
+/* Hover effect for button */
+.button:hover {
+    background-color: #45a049;
+}
+
+/* Media query for tablets */
+@media (max-width: 768px) {
+    .content {
+        width: 90%;
+        margin: 10px;
+        padding: 15px;
+    }
+
+    button {
+        padding: 12px 24px;
+        font-size: 16px;
+    }
+}
+
+/* Media query for mobile devices */
+@media (max-width: 480px) {
+    .content {
+        width: 95%;
+        margin: 5px;
+        padding: 10px;
+    }
+
+    button {
+        width: 100%; /* Full width button */
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+
+    .video-player {
+        margin-bottom: 15px;
+    }
+}

@@ -14,12 +14,12 @@ const port = process.env.PORT || 3000;
 // Middleware to parse JSON requests
 app.use(express.json());
 
-// Serve static files from the 'public' directory
-app.use(express.static(path.join(__dirname, 'public')));
-
 // Fix for __dirname in ES modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
+// Serve static files from the 'public' directory
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Default route to serve the homepage
 app.get('/', (req, res) => {

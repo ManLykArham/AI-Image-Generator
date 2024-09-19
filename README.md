@@ -42,6 +42,14 @@ To generate an image of "A futuristic city skyline," type the prompt and click *
 
 ---
 
+## 🎥 Demo
+
+Watch the demo of the AI Image Generator Web App:
+
+[Demo Video](assets/AI-Image-Generator-Video.mp4)
+
+---
+
 ## 📬 Contact
 
 If you have any questions or feedback, feel free to reach out via [iarham720@gmail.com](mailto:iarham720@gmail.com).

@@ -18,8 +18,9 @@ app.use(express.json());
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Serve static files from the 'public' directory
+// Serve static files from the 'public' and 'assets' directories
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/assets', express.static(path.join(__dirname, 'assets')));
 
 // Serve homepage
 app.get('/', (req, res) => {

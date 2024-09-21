@@ -50,8 +50,8 @@ app.post('/generateImages', async (req, res) => {
             },
             body: JSON.stringify({
                 prompt: prompt,
-                n: 4, // Number of images to generate
-                size: '512x512' // Image size
+                n: 2, // Number of images to generate
+                size: '256x256' // Image size
             })
         }, 10000); // 10-second timeout
 

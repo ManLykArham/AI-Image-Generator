@@ -1,4 +1,3 @@
-const maxImages = 4; // Number of images to generate for each prompt
 let selectedImageNumber = null;
 
 // Function to generate a random number

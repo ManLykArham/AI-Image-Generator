@@ -22,7 +22,7 @@ In conclusion, this project has shown me how much progress I’ve made over the 
 
 ## 🛠️ How to Use
 
-1. **🌐 Visit the App:** Open the AI Image Generator in your [web browser]([(https://ai-image-generator-eight-psi.vercel.app/]) .
+1. **🌐 Visit the App:** Open the AI Image Generator in your [web browser](https://ai-image-generator-eight-psi.vercel.app/) .
 2. **🖊️ Enter a Prompt:** Type a descriptive prompt in the input field.
    - For example, “A sunset over a tranquil lake.”
 3. **🚀 Generate Images:** Click the Generate button. The app will process your request and display generated images.
